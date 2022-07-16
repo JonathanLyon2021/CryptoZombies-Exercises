@@ -4,6 +4,12 @@ import "./zombieattack.sol";
 import "./erc721.sol";
 import "./safemath.sol";
 
+/*
+@title contract ZombieOwnership
+@author Jonathan Lyon
+@dev Compliant with OpenXeppelin's implementation of the ERC721 spec draft
+*/
+
 contract ZombieOwnership is ZombieAttack, ERC721 {
 
   using SafeMath for uint256;
