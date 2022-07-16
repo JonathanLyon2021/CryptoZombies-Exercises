@@ -5,17 +5,28 @@
     <title>CryptoZombies front-end</title>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="web3.min.js"></script>
-    <scriptlanguage="javascript" type="text/javascript" src="cryptozombies_abi.js"></script>
+    <script language="javascript" type="text/javascript" src="cryptozombies_abi.js"></script>
   </head>
   <body>
 
     <script>
       var cryptoZombies;
 
-      function startApp(){
+      function startApp() {
         var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
         cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
       }
+
+      function getZombieDetails(id) {
+        return cryptoZombies.methods.zombies(id).call()
+      }
+
+      function zombieToOwner(id){
+        return cryptoZombies.methods.zombieToOwner(id).call()
+      }
+
+      // 2. Define `getZombiesByOwner` here
+
       window.addEventListener('load', function() {
 
         // Checking if Web3 has been injected by the browser (Mist/MetaMask)
