@@ -56,7 +56,15 @@
         
         return cryptoZombies.methods.createRandomZombie(name)
         .send({ from: userAccount })
-        
+        .on("receipt", function(receipt) { 
+          $("txStatus").text("Successfully created " + name + "!");
+          
+          getZombiesByOwner(userAccount).then(displayZombies);
+        })
+        .on("error", function(error){
+          $("#txStatus").text(error);
+        });
+      }
           
 
       function getZombieDetails(id) {
