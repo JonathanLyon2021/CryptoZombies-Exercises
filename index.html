@@ -49,6 +49,15 @@
           });
         }
       }
+      
+      function createRandomZombie(name) {
+        
+        $("#txStatus").text("Creating neew zombie on the blockchain. This may take a while...");
+        
+        return cryptoZombies.methods.createRandomZombie(name)
+        .send({ from: userAccount })
+        
+          
 
       function getZombieDetails(id) {
         return cryptoZombies.methods.zombies(id).call()
