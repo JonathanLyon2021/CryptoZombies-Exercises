@@ -68,6 +68,20 @@
         });
       }
       
+       function feedOnKitty(zombieId, kittyId) {
+       
+       
+        $("#txStatus").text("Eating a kitty. This may take a while...");
+         
+          getZombiesByOwner(userAccount).then(displayZombies);
+        })
+        .on("error", function(error) {
+         
+          $("#txStatus").text(error);
+        });
+      }
+
+      
       function createRandomZombie(name) {
         
         $("#txStatus").text("Creating neew zombie on the blockchain. This may take a while...");
